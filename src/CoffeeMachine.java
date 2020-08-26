@@ -3,21 +3,20 @@ import java.util.Scanner;
 
 public class CoffeeMachine {
 
-    static int totalAmtOfWater = 400;
-    static int totalAmtOfMilk = 540;
-    static int totalAmtOfCoffeeBeans = 120;
-    static int totalAmtOfCups = 9;
-    static int totalAmtOfMoney = 550;
+    private static int totalAmtOfWater = 400;
+    private static int totalAmtOfMilk = 540;
+    private static int totalAmtOfCoffeeBeans = 120;
+    private static int totalAmtOfCups = 9;
+    private static int totalAmtOfMoney = 550;
 
-    static String inputBuy = "buy";
-    static String inputFill = "fill";
-    static String inputTake = "take";
-    static String input;
-    static int kindOfCoffee;
-
-    static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+
+        String inputBuy = "buy";
+        String inputFill = "fill";
+        String inputTake = "take";
+        String input;
 
         System.out.println("The coffee machine has:");
         System.out.println(totalAmtOfWater + " of water");
@@ -40,28 +39,12 @@ public class CoffeeMachine {
         }else {
             System.out.println("enter buy, fill, or take: ");
         }
-
-//        water /= 200;
-//        milk /= 50;
-//        beans /= 15;
-//
-//        int min = Math.min(water, milk);
-//        min = Math.min(beans, min);
-//
-//        if (n == min) {
-//            System.out.println("Yes, I can make that amount of coffee");
-//        } else if (n < min) {
-//            System.out.println("Yes, I can make that amount of coffee (and even " +
-//                    (min - n) + " more than that)");
-//        } else {
-//            System.out.println("No, I can make only " + min + " cup(s) of coffee");
-//        }
     }
 
     public static void buy(){
 
         System.out.println("what do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:");
-        kindOfCoffee = scanner.nextInt();
+        int kindOfCoffee;kindOfCoffee = scanner.nextInt();
 
         System.out.println("");
 
@@ -109,12 +92,23 @@ public class CoffeeMachine {
 
     public static void take(){
 
+        System.out.println("How much do you want?");
+        int requestedAmount = scanner.nextInt();
+        totalAmtOfMoney -= requestedAmount;
+
+        System.out.println("I gave you " + "$" + requestedAmount);
+        System.out.println("");
+
+        System.out.println(totalAmtOfWater + " of water");
+        System.out.println(totalAmtOfMilk + " of milk");
+        System.out.println(totalAmtOfCoffeeBeans + " of coffee beans");
+        System.out.println(totalAmtOfCups + " of disposable cups");
+        System.out.println(totalAmtOfMoney + " of money");
     }
 
 
     public static void espresso(){
         totalAmtOfWater -= 250;
-        //totalAmtOfMilk;
         totalAmtOfCoffeeBeans -= 16;
         totalAmtOfCups -= 1;
         totalAmtOfMoney += 4;
