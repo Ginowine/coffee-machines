@@ -2,54 +2,44 @@
 import java.util.Scanner;
 
 public class CoffeeMachine {
+
+    static int totalAmtOfWater = 400;
+    static int totalAmtOfMilk = 540;
+    static int totalAmtOfCoffeeBeans = 120;
+    static int totalAmtOfCups = 9;
+    static int totalAmtOfMoney = 550;
+
+    static String inputBuy = "buy";
+    static String inputFill = "fill";
+    static String inputTake = "take";
+    static String input;
+    static int kindOfCoffee;
+
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        int amtOfWater = 400;
-        int amtOfMilk = 540;
-        int amtOfCoffeeBeans = 120;
-        int amtOfCups = 9;
-        int amtOfMoney = 550;
-
-        String inputBuy = "buy";
-        String inputFill = "fill";
-        String inputTake = "take";
-        String input;
-        int kindOfCoffee;
-
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("The coffee machine has:");
-        System.out.println(amtOfWater + " of water");
-        System.out.println(amtOfMilk + " of milk");
-        System.out.println(amtOfCoffeeBeans + " of coffee beans");
-        System.out.println(amtOfCups + " of disposable cups");
-        System.out.println(amtOfMoney + " of money");
+        System.out.println(totalAmtOfWater + " of water");
+        System.out.println(totalAmtOfMilk + " of milk");
+        System.out.println(totalAmtOfCoffeeBeans + " of coffee beans");
+        System.out.println(totalAmtOfCups + " of disposable cups");
+        System.out.println(totalAmtOfMoney + " of money");
 
+        System.out.println("");
 
         System.out.println("write action (buy, fill, take): " );
         input = scanner.next();
 
-        System.out.println("what do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:");
-        kindOfCoffee = scanner.nextInt();
-
-        switch (kindOfCoffee){
-            case 1:
-                espresso();
-                break;
-            case 2:
-                latte();
-                break;
-            case 3:
-                cappuccino();
-                break;
-            default:
-                System.out.println("please choose 1 for espresso, 2 for latte, 3 for cappuccino");
+        if (input.equals(inputBuy)){
+            buy();
+        }else if (input.equals(inputFill)){
+            fill();
+        }else if (input.equals(inputTake)){
+            take();
+        }else {
+            System.out.println("enter buy, fill, or take: ");
         }
-
-
-
-
-
 
 //        water /= 200;
 //        milk /= 50;
@@ -68,6 +58,37 @@ public class CoffeeMachine {
 //        }
     }
 
+    public static void buy(){
+
+        System.out.println("what do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:");
+        kindOfCoffee = scanner.nextInt();
+
+        System.out.println("");
+
+        switch (kindOfCoffee){
+            case 1:
+                espresso();
+                break;
+            case 2:
+                latte();
+                break;
+            case 3:
+                cappuccino();
+                break;
+            default:
+                System.out.println("please choose 1 for espresso, 2 for latte, 3 for cappuccino");
+        }
+    }
+
+    public static void fill(){
+
+    }
+
+    public static void take(){
+
+    }
+
+
     public static void espresso(){
 
     }
@@ -77,6 +98,19 @@ public class CoffeeMachine {
     }
 
     public static void cappuccino(){
+        totalAmtOfWater -= 200;
+        totalAmtOfMilk -= 100;
+        totalAmtOfCoffeeBeans -= 12;
+        totalAmtOfCups =- 1;
+        totalAmtOfMoney += 6;
+
+        System.out.println("The coffee machine has:");
+
+        System.out.println(totalAmtOfWater + " of water");
+        System.out.println(totalAmtOfMilk + " of milk");
+        System.out.println(totalAmtOfCoffeeBeans + " of coffee beans");
+        System.out.println(totalAmtOfCups + " of disposable cups");
+        System.out.println(totalAmtOfMoney + " of money");
 
     }
 
