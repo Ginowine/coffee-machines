@@ -82,6 +82,29 @@ public class CoffeeMachine {
 
     public static void fill(){
 
+        System.out.println("Write how many ml of water do you want to add");
+        int amtOfWaterToAdd = scanner.nextInt();
+        System.out.println("Write how many ml of milk do you want to add:");
+        int amtOfMilkToAdd = scanner.nextInt();
+        System.out.println("Write how many grams of coffee beans do you want to add:");
+        int amtOfCoffeeBeansToAdd = scanner.nextInt();
+        System.out.println("Write how many disposable cups of coffee do you want to add:");
+        int amtOfCupsToAdd = scanner.nextInt();
+
+        System.out.println("");
+
+        totalAmtOfWater += amtOfWaterToAdd;
+        totalAmtOfMilk += amtOfMilkToAdd;
+        totalAmtOfCoffeeBeans += amtOfCoffeeBeansToAdd;
+        totalAmtOfCups += amtOfCupsToAdd;
+
+        System.out.println("The coffee machine has:");
+
+        System.out.println(totalAmtOfWater + " of water");
+        System.out.println(totalAmtOfMilk + " of milk");
+        System.out.println(totalAmtOfCoffeeBeans + " of coffee beans");
+        System.out.println(totalAmtOfCups + " of disposable cups");
+        System.out.println(totalAmtOfMoney + " of money");
     }
 
     public static void take(){
@@ -90,19 +113,11 @@ public class CoffeeMachine {
 
 
     public static void espresso(){
-
-    }
-
-    public static void latte(){
-
-    }
-
-    public static void cappuccino(){
-        totalAmtOfWater -= 200;
-        totalAmtOfMilk -= 100;
-        totalAmtOfCoffeeBeans -= 12;
-        totalAmtOfCups =- 1;
-        totalAmtOfMoney += 6;
+        totalAmtOfWater -= 250;
+        //totalAmtOfMilk;
+        totalAmtOfCoffeeBeans -= 16;
+        totalAmtOfCups -= 1;
+        totalAmtOfMoney += 4;
 
         System.out.println("The coffee machine has:");
 
@@ -112,6 +127,38 @@ public class CoffeeMachine {
         System.out.println(totalAmtOfCups + " of disposable cups");
         System.out.println(totalAmtOfMoney + " of money");
 
+    }
+
+    public static void latte(){
+        totalAmtOfWater -= 350;
+        totalAmtOfMilk -= 75;
+        totalAmtOfCoffeeBeans -= 20;
+        totalAmtOfCups -= 1;
+        totalAmtOfMoney += 7;
+
+        System.out.println("The coffee machine has:");
+
+        System.out.println(totalAmtOfWater + " of water");
+        System.out.println(totalAmtOfMilk + " of milk");
+        System.out.println(totalAmtOfCoffeeBeans + " of coffee beans");
+        System.out.println(totalAmtOfCups + " of disposable cups");
+        System.out.println(totalAmtOfMoney + " of money");
+    }
+
+    public static void cappuccino(){
+        totalAmtOfWater -= 200;
+        totalAmtOfMilk -= 100;
+        totalAmtOfCoffeeBeans -= 12;
+        totalAmtOfCups -= 1;
+        totalAmtOfMoney += 6;
+
+        System.out.println("The coffee machine has:");
+
+        System.out.println(totalAmtOfWater + " of water");
+        System.out.println(totalAmtOfMilk + " of milk");
+        System.out.println(totalAmtOfCoffeeBeans + " of coffee beans");
+        System.out.println(totalAmtOfCups + " of disposable cups");
+        System.out.println(totalAmtOfMoney + " of money");
     }
 
 }
